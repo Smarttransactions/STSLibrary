@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kaj-g6-S1v">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Table View Controller-->
+        <scene sceneID="99y-x1-JvD">
+            <objects>
+                <tableViewController id="kaj-g6-S1v" customClass="TableViewController" customModule="ServerNetworkInterface_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Akk-b8-5k0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="TcM-K9-XYx">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dW5-VD-sEf">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dW5-VD-sEf" id="4u3-EI-C1k">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOX-3m-9df">
+                                                    <rect key="frame" x="-1" y="-1" width="376" height="44"/>
+                                                    <state key="normal" title="ACTIVATE GIFT CARD"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dOX-3m-9df" firstAttribute="centerX" secondItem="4u3-EI-C1k" secondAttribute="centerX" id="07o-zv-Vdy"/>
+                                                <constraint firstItem="dOX-3m-9df" firstAttribute="height" secondItem="4u3-EI-C1k" secondAttribute="height" id="2FH-he-JFJ"/>
+                                                <constraint firstItem="dOX-3m-9df" firstAttribute="width" secondItem="4u3-EI-C1k" secondAttribute="width" id="cBE-vC-fAg"/>
+                                                <constraint firstItem="dOX-3m-9df" firstAttribute="centerY" secondItem="4u3-EI-C1k" secondAttribute="centerY" id="vQd-s9-F0h"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zMK-mi-4Tf">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zMK-mi-4Tf" id="M3h-nH-xy7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1N-dB-nCB">
+                                                    <rect key="frame" x="-1" y="-1" width="376" height="44"/>
+                                                    <state key="normal" title="ACTIVATE E GIFT CARD"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="y1N-dB-nCB" firstAttribute="width" secondItem="M3h-nH-xy7" secondAttribute="width" id="KYD-PB-REs"/>
+                                                <constraint firstItem="y1N-dB-nCB" firstAttribute="height" secondItem="M3h-nH-xy7" secondAttribute="height" id="XlS-QQ-EWI"/>
+                                                <constraint firstItem="y1N-dB-nCB" firstAttribute="centerY" secondItem="M3h-nH-xy7" secondAttribute="centerY" id="jnl-4Z-ZwH"/>
+                                                <constraint firstItem="y1N-dB-nCB" firstAttribute="centerX" secondItem="M3h-nH-xy7" secondAttribute="centerX" id="lja-s6-Dwn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="4Oj-Uu-umo">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Oj-Uu-umo" id="Ta2-vn-x5F">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0V-mc-Hke">
+                                                    <rect key="frame" x="-1" y="0.0" width="376" height="43"/>
+                                                    <state key="normal" title="REDEEM GIFT CARD"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="C0V-mc-Hke" firstAttribute="centerY" secondItem="Ta2-vn-x5F" secondAttribute="centerY" id="3p2-sk-w2R"/>
+                                                <constraint firstItem="C0V-mc-Hke" firstAttribute="centerX" secondItem="Ta2-vn-x5F" secondAttribute="centerX" id="9cF-G8-WWK"/>
+                                                <constraint firstItem="C0V-mc-Hke" firstAttribute="height" secondItem="Ta2-vn-x5F" secondAttribute="height" id="mdl-s1-h5l"/>
+                                                <constraint firstItem="C0V-mc-Hke" firstAttribute="width" secondItem="Ta2-vn-x5F" secondAttribute="width" id="oRm-rz-nNG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="c2B-1g-DNg">
+                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c2B-1g-DNg" id="PvB-tT-igN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnS-TM-E08">
+                                                    <rect key="frame" x="-1" y="0.0" width="376" height="43"/>
+                                                    <state key="normal" title="VOID GIFT CARD"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FnS-TM-E08" firstAttribute="centerY" secondItem="PvB-tT-igN" secondAttribute="centerY" id="G59-px-Rqg"/>
+                                                <constraint firstItem="FnS-TM-E08" firstAttribute="height" secondItem="PvB-tT-igN" secondAttribute="height" id="QbN-n7-hDQ"/>
+                                                <constraint firstItem="FnS-TM-E08" firstAttribute="centerX" secondItem="PvB-tT-igN" secondAttribute="centerX" id="Vgw-xO-qg2"/>
+                                                <constraint firstItem="FnS-TM-E08" firstAttribute="width" secondItem="PvB-tT-igN" secondAttribute="width" id="fUS-SF-spG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cnh-dM-wsK">
+                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cnh-dM-wsK" id="TW0-kd-DbY">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLz-n4-fyC">
+                                                    <rect key="frame" x="-1" y="0.0" width="376" height="43"/>
+                                                    <state key="normal" title="GIFT BALANCE ENQUIRY"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aLz-n4-fyC" firstAttribute="height" secondItem="TW0-kd-DbY" secondAttribute="height" id="2Ha-Bo-W1V"/>
+                                                <constraint firstItem="aLz-n4-fyC" firstAttribute="centerY" secondItem="TW0-kd-DbY" secondAttribute="centerY" id="5zE-eD-OUT"/>
+                                                <constraint firstItem="aLz-n4-fyC" firstAttribute="width" secondItem="TW0-kd-DbY" secondAttribute="width" id="Ydt-ZD-mZd"/>
+                                                <constraint firstItem="aLz-n4-fyC" firstAttribute="centerX" secondItem="TW0-kd-DbY" secondAttribute="centerX" id="aik-FM-OL2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="LMp-ns-gOO">
+                                        <rect key="frame" x="0.0" y="220" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LMp-ns-gOO" id="k4A-IG-lyJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtK-F6-iiS">
+                                                    <rect key="frame" x="-1" y="0.0" width="376" height="43"/>
+                                                    <state key="normal" title="LOYALTY ACCURAL"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BtK-F6-iiS" firstAttribute="centerX" secondItem="k4A-IG-lyJ" secondAttribute="centerX" id="580-23-LYG"/>
+                                                <constraint firstItem="BtK-F6-iiS" firstAttribute="centerY" secondItem="k4A-IG-lyJ" secondAttribute="centerY" id="Bd9-b1-GJP"/>
+                                                <constraint firstItem="BtK-F6-iiS" firstAttribute="height" secondItem="k4A-IG-lyJ" secondAttribute="height" id="Hiz-Ls-I5d"/>
+                                                <constraint firstItem="BtK-F6-iiS" firstAttribute="width" secondItem="k4A-IG-lyJ" secondAttribute="width" id="I1g-Rc-nvL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pr4-IB-En9">
+                                        <rect key="frame" x="0.0" y="264" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pr4-IB-En9" id="83i-sK-BNE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoI-sz-Mm8">
+                                                    <rect key="frame" x="-1" y="0.0" width="376" height="43"/>
+                                                    <state key="normal" title="LOYALTY REDEMPTION"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GoI-sz-Mm8" firstAttribute="centerY" secondItem="83i-sK-BNE" secondAttribute="centerY" id="5ZI-kh-11t"/>
+                                                <constraint firstItem="GoI-sz-Mm8" firstAttribute="width" secondItem="83i-sK-BNE" secondAttribute="width" id="Pj5-bi-iGb"/>
+                                                <constraint firstItem="GoI-sz-Mm8" firstAttribute="height" secondItem="83i-sK-BNE" secondAttribute="height" id="Tux-EY-Hv5"/>
+                                                <constraint firstItem="GoI-sz-Mm8" firstAttribute="centerX" secondItem="83i-sK-BNE" secondAttribute="centerX" id="jwq-C5-pJ1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bGQ-De-cEO">
+                                        <rect key="frame" x="0.0" y="308" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bGQ-De-cEO" id="TaW-yO-Af5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEP-MP-pdp">
+                                                    <rect key="frame" x="-1" y="0.0" width="376" height="43"/>
+                                                    <state key="normal" title="LOYALTY BALANCE ENQUIRY"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LEP-MP-pdp" firstAttribute="width" secondItem="TaW-yO-Af5" secondAttribute="width" id="Dux-yp-rjO"/>
+                                                <constraint firstItem="LEP-MP-pdp" firstAttribute="centerY" secondItem="TaW-yO-Af5" secondAttribute="centerY" id="Glk-xC-2aC"/>
+                                                <constraint firstItem="LEP-MP-pdp" firstAttribute="centerX" secondItem="TaW-yO-Af5" secondAttribute="centerX" id="H8d-Hf-7Hg"/>
+                                                <constraint firstItem="LEP-MP-pdp" firstAttribute="height" secondItem="TaW-yO-Af5" secondAttribute="height" id="KXb-F5-ZcV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="kaj-g6-S1v" id="jeJ-AX-VZD"/>
+                            <outlet property="delegate" destination="kaj-g6-S1v" id="GV4-Fe-Eqf"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bT1-8U-QZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

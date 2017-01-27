@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'STSLibrary_Example' do
+  pod 'STSLibrary', :path => '../'
+
+  target 'STSLibrary_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
