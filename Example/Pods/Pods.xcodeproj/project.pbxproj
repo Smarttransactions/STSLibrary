@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03DA70ED74600701B7EE4B35749129D9 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA61F8E88725E1522C90A57E76018E /* ServerManager.swift */; };
+		07869D62E9FF2AA86E4A93EF545421BC /* STSLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE66EAF8E32CB66A057DAF238C8880F /* STSLibrary.swift */; };
 		338B8A11BBECD10B7205F76142B4E203 /* STSLibrary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C10F51AF7FBEDD0314BBDE4FCFC25D6B /* STSLibrary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A5D133AD043A249340D60068F4FC1E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		3ACEE1AC1E3BB00F00415BA9 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEE1A81E3BB00F00415BA9 /* LoaderView.swift */; };
-		3ACEE1AD1E3BB00F00415BA9 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEE1A91E3BB00F00415BA9 /* ServerManager.swift */; };
-		3ACEE1AE1E3BB00F00415BA9 /* STSLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEE1AA1E3BB00F00415BA9 /* STSLibrary.swift */; };
-		3ACEE1AF1E3BB00F00415BA9 /* XmlReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEE1AB1E3BB00F00415BA9 /* XmlReader.swift */; };
 		71699289BC025C3E6DB27DE20E2C6984 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		73D83FE868D9FF488B728AC7C88ACCEB /* STSLibrary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6D6C7383E3DC61EC15E640C122814 /* STSLibrary-dummy.m */; };
 		76B6A7F46387ABF3216A96716187F2CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		778982CD55197E57266082ADA45CCCAD /* Pods-STSLibrary_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D02C8CF2CBFF6B98F8E6B9280118BEA7 /* Pods-STSLibrary_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8A78423BEB058F0CF864294B51A60E34 /* STSLibrary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6D6C7383E3DC61EC15E640C122814 /* STSLibrary-dummy.m */; };
+		7E28A6C52141103A9F55CE105D3E0D75 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEB015A26DB1AFFB403F5F1F916A397 /* LoaderView.swift */; };
+		A6F83A3594109FBFCA727A0877E97575 /* XmlReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE53134A3F7AB8212F88726660A8E3 /* XmlReader.swift */; };
 		C1E86E4AFB7C78C6AAA94804EBF92AD4 /* Pods-STSLibrary_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DD1C3A6D1E43CD23C29841DA5ABDB24 /* Pods-STSLibrary_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D915B4264D6ED472218037A553AB1345 /* Pods-STSLibrary_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7514384BC46D745AED48C29AB837CFF3 /* Pods-STSLibrary_Example-dummy.m */; };
 		FB6EC4409A3A7681FAE9D2447D0BCF7A /* Pods-STSLibrary_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBEF114E45215D082902B8A461BB3865 /* Pods-STSLibrary_Tests-dummy.m */; };
@@ -33,26 +33,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B4325E995C1DB4D83F00814B3C430CF /* Pods_STSLibrary_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STSLibrary_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B4325E995C1DB4D83F00814B3C430CF /* Pods_STSLibrary_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_STSLibrary_Example.framework; path = "Pods-STSLibrary_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1705FFFC531E6E348276146513018AC1 /* Pods-STSLibrary_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-STSLibrary_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		1DD1C3A6D1E43CD23C29841DA5ABDB24 /* Pods-STSLibrary_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-STSLibrary_Example-umbrella.h"; sourceTree = "<group>"; };
 		2F3DE9A7F67FAD400EEE9452291229D8 /* STSLibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = STSLibrary.xcconfig; sourceTree = "<group>"; };
-		309B8CCF61BA04DDEFD9CD377161538A /* Pods-STSLibrary_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-STSLibrary_Example.modulemap"; sourceTree = "<group>"; };
-		3ACEE1A81E3BB00F00415BA9 /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
-		3ACEE1A91E3BB00F00415BA9 /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
-		3ACEE1AA1E3BB00F00415BA9 /* STSLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STSLibrary.swift; sourceTree = "<group>"; };
-		3ACEE1AB1E3BB00F00415BA9 /* XmlReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmlReader.swift; sourceTree = "<group>"; };
+		309B8CCF61BA04DDEFD9CD377161538A /* Pods-STSLibrary_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-STSLibrary_Example.modulemap"; sourceTree = "<group>"; };
 		3DC01D12BDA2A4D87D98C54F48E0AC0D /* Pods-STSLibrary_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-STSLibrary_Example-resources.sh"; sourceTree = "<group>"; };
 		5814EB0321899B22959090175B68A6B4 /* Pods-STSLibrary_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-STSLibrary_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5D55C9DF76F1D712170CA87E3BFB0DCF /* Pods-STSLibrary_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-STSLibrary_Example.release.xcconfig"; sourceTree = "<group>"; };
-		5DE58C0E732508832C966E20363AABEE /* STSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = STSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DE58C0E732508832C966E20363AABEE /* STSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = STSLibrary.framework; path = STSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D358A077E0E1B49ED2323448220489 /* Pods-STSLibrary_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-STSLibrary_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		713A200A7DD4C2BE34FD121417540419 /* Pods-STSLibrary_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-STSLibrary_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		7406EFD63C557E4DC38DD87034581211 /* Pods-STSLibrary_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-STSLibrary_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		7514384BC46D745AED48C29AB837CFF3 /* Pods-STSLibrary_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-STSLibrary_Example-dummy.m"; sourceTree = "<group>"; };
 		7919A606B54F9298D406AFE549CB596E /* Pods-STSLibrary_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-STSLibrary_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		84CBF89F352C049F1BCFB51FAEFF1A68 /* Pods-STSLibrary_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-STSLibrary_Tests.modulemap"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		84CBF89F352C049F1BCFB51FAEFF1A68 /* Pods-STSLibrary_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-STSLibrary_Tests.modulemap"; sourceTree = "<group>"; };
+		8CE66EAF8E32CB66A057DAF238C8880F /* STSLibrary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STSLibrary.swift; sourceTree = "<group>"; };
+		8DEB015A26DB1AFFB403F5F1F916A397 /* LoaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A8708C0F04153C9AA4D19F9DFAB457F5 /* Pods-STSLibrary_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-STSLibrary_Tests-resources.sh"; sourceTree = "<group>"; };
 		B4088305AB7842BEEDBF0C70957177B6 /* Pods-STSLibrary_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-STSLibrary_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		BBEF114E45215D082902B8A461BB3865 /* Pods-STSLibrary_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-STSLibrary_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -61,9 +59,11 @@
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D02C8CF2CBFF6B98F8E6B9280118BEA7 /* Pods-STSLibrary_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-STSLibrary_Tests-umbrella.h"; sourceTree = "<group>"; };
 		D8B07D351D178846CC7D42A17E3AFDEB /* STSLibrary-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "STSLibrary-prefix.pch"; sourceTree = "<group>"; };
+		DAEA61F8E88725E1522C90A57E76018E /* ServerManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		E0BE53134A3F7AB8212F88726660A8E3 /* XmlReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XmlReader.swift; sourceTree = "<group>"; };
 		E36F4C25F186A9BB5CD0935B40778C32 /* Pods-STSLibrary_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-STSLibrary_Example-frameworks.sh"; sourceTree = "<group>"; };
-		F126F917367FCBEF7808ADBB9B05E2F8 /* Pods_STSLibrary_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STSLibrary_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F57F498DDE7B569A220CDAA26AABADF6 /* STSLibrary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = STSLibrary.modulemap; sourceTree = "<group>"; };
+		F126F917367FCBEF7808ADBB9B05E2F8 /* Pods_STSLibrary_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_STSLibrary_Tests.framework; path = "Pods-STSLibrary_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F57F498DDE7B569A220CDAA26AABADF6 /* STSLibrary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = STSLibrary.modulemap; sourceTree = "<group>"; };
 		F669CE8E566806255F373DF908DD62BB /* Pods-STSLibrary_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-STSLibrary_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		FB6371E198DBC086CBA132DD77DB8AEB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF6DF45F46E3162317267DF41A572137 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +98,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D844882EB8CC74A7BE849CC56465467 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8DEB015A26DB1AFFB403F5F1F916A397 /* LoaderView.swift */,
+				DAEA61F8E88725E1522C90A57E76018E /* ServerManager.swift */,
+				8CE66EAF8E32CB66A057DAF238C8880F /* STSLibrary.swift */,
+				E0BE53134A3F7AB8212F88726660A8E3 /* XmlReader.swift */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		21B24E85C3E1F8A3626E49FFB4362C6D /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,7 +123,7 @@
 		2F3C552BEE5FC005EF6420FF308EF861 /* STSLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				BE3EAE9FD408F60800E9967879A6C0D8 /* STSLibrary */,
+				591D7E772290D021F8B96D2DEDCEC741 /* STSLibrary */,
 				F75D1FCC99726645576A1DCABE85B70C /* Support Files */,
 			);
 			name = STSLibrary;
@@ -125,6 +137,15 @@
 				8EDEB66587EFAB28F845358AFD441F66 /* Pods-STSLibrary_Tests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		591D7E772290D021F8B96D2DEDCEC741 /* STSLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				1D844882EB8CC74A7BE849CC56465467 /* Classes */,
+			);
+			name = STSLibrary;
+			path = STSLibrary;
 			sourceTree = "<group>";
 		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
@@ -164,31 +185,12 @@
 			path = "Target Support Files/Pods-STSLibrary_Tests";
 			sourceTree = "<group>";
 		};
-		AE863960EA14333866A1C61647AFDE69 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				3ACEE1A81E3BB00F00415BA9 /* LoaderView.swift */,
-				3ACEE1A91E3BB00F00415BA9 /* ServerManager.swift */,
-				3ACEE1AA1E3BB00F00415BA9 /* STSLibrary.swift */,
-				3ACEE1AB1E3BB00F00415BA9 /* XmlReader.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BE3EAE9FD408F60800E9967879A6C0D8 /* STSLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				AE863960EA14333866A1C61647AFDE69 /* Classes */,
-			);
-			path = STSLibrary;
 			sourceTree = "<group>";
 		};
 		D840D7D7850C3DEB2102BAFA76868372 /* Development Pods */ = {
@@ -300,7 +302,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEE82D830BADAD41B6945AA5C815421D /* Build configuration list for PBXNativeTarget "STSLibrary" */;
 			buildPhases = (
-				0DDD58CE6A3667CF256FBFB7166E0A5F /* Sources */,
+				31261B472C9DD9BD94FD9A7D2A94A09A /* Sources */,
 				EE600F9EC1FA9E82CB42D59CDEFA5849 /* Frameworks */,
 				CFD702D27AA508A08CB04ADD44604129 /* Headers */,
 			);
@@ -321,14 +323,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					7D416B8E53CB11B9C61C4CC626919ABC = {
-						LastSwiftMigration = 0820;
-					};
-					FF3B0D943BCD0860A6DBE5425A8A2BB8 = {
-						LastSwiftMigration = 0820;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -350,14 +344,6 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0DDD58CE6A3667CF256FBFB7166E0A5F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A78423BEB058F0CF864294B51A60E34 /* STSLibrary-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		26AD1055D533F78C049476B2CC11E7B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -366,15 +352,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		31261B472C9DD9BD94FD9A7D2A94A09A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E28A6C52141103A9F55CE105D3E0D75 /* LoaderView.swift in Sources */,
+				03DA70ED74600701B7EE4B35749129D9 /* ServerManager.swift in Sources */,
+				73D83FE868D9FF488B728AC7C88ACCEB /* STSLibrary-dummy.m in Sources */,
+				07869D62E9FF2AA86E4A93EF545421BC /* STSLibrary.swift in Sources */,
+				A6F83A3594109FBFCA727A0877E97575 /* XmlReader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		36D07D9479063DFFBCB65BDE676BD1A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D915B4264D6ED472218037A553AB1345 /* Pods-STSLibrary_Example-dummy.m in Sources */,
-				3ACEE1AD1E3BB00F00415BA9 /* ServerManager.swift in Sources */,
-				3ACEE1AF1E3BB00F00415BA9 /* XmlReader.swift in Sources */,
-				3ACEE1AE1E3BB00F00415BA9 /* STSLibrary.swift in Sources */,
-				3ACEE1AC1E3BB00F00415BA9 /* LoaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +388,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5D55C9DF76F1D712170CA87E3BFB0DCF /* Pods-STSLibrary_Example.release.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -420,18 +413,49 @@
 				PRODUCT_NAME = Pods_STSLibrary_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
+		8309C8A86D5947E3168C133E5A433F7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F3DE9A7F67FAD400EEE9452291229D8 /* STSLibrary.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STSLibrary/STSLibrary-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/STSLibrary/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/STSLibrary/STSLibrary.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = STSLibrary;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		8D0DB104FA1DCDA3389A7F9C5676150C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F669CE8E566806255F373DF908DD62BB /* Pods-STSLibrary_Example.debug.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -458,7 +482,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -584,40 +607,7 @@
 			};
 			name = Debug;
 		};
-		A44F346EF698B7ADA6BC0B7A5313F5E4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F3DE9A7F67FAD400EEE9452291229D8 /* STSLibrary.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/STSLibrary/STSLibrary-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/STSLibrary/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/STSLibrary/STSLibrary.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = STSLibrary;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		CE20B56EDA88844CF7570172AC4429C0 /* Release */ = {
+		E3CC6EC0DF8C71E8598C179704A3633F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2F3DE9A7F67FAD400EEE9452291229D8 /* STSLibrary.xcconfig */;
 			buildSettings = {
@@ -708,8 +698,8 @@
 		BEE82D830BADAD41B6945AA5C815421D /* Build configuration list for PBXNativeTarget "STSLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A44F346EF698B7ADA6BC0B7A5313F5E4 /* Debug */,
-				CE20B56EDA88844CF7570172AC4429C0 /* Release */,
+				8309C8A86D5947E3168C133E5A433F7A /* Debug */,
+				E3CC6EC0DF8C71E8598C179704A3633F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

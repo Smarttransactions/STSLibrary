@@ -285,8 +285,8 @@ public class STSLibrary:NSObject{
     }
     public func sendContactInfoToServer(merchantName:String,firstName:String,lastName:String,address1:String,address2:String,city:String,state:String,zip:String,phone:String,email:String,onSuccess:@escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void){
         let dict = NSMutableDictionary()
-        dict["merchant_number"] = "571141001001"
-        dict["terminal_id"] = "001"
+        dict["Merchant_Number"] = "571141001001"
+        dict["Terminal_ID"] = "001"
         dict["Transaction_ID"] = transactionID
         dict["merchant_name"] = merchantName
         dict["contact_fname"] = firstName
@@ -300,8 +300,8 @@ public class STSLibrary:NSObject{
         dict["phone"] = phone
         dict["email"] = email
         dict["get"] = "true"
-        
-        let url = kBaseURLForMerchantDetail.appending(kSetUpMerchantURL)
+        dict["Action_Code"] = "30"
+        let url = kBaseURL//kBaseURLForMerchantDetail.appending(kSetUpMerchantURL)
         serverManager = ServerManager(delegate: delegate, successBlock: onSuccess, failureBlock: onFailure)
         serverManager.makePostRequest(url: url, postDataDic: dict, viewControllerContext: delegate)
     }

@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  ServerNetworkInterface
+//  STSLibrary
 //
 //  Created by ankitkumar2 on 01/24/2017.
 //  Copyright (c) 2017 ankitkumar2. All rights reserved.
@@ -13,12 +13,12 @@ import STSLibrary
 class TableViewController: UITableViewController {
 
   
-  var lServerManagerInterface:ServerNetworkInterface? = nil
+  var lServerManagerInterface:STSLibrary? = nil
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Demo"
     //"747756"
-    lServerManagerInterface = ServerNetworkInterface(merchantID: "111111111111", terminalID: "245", transactionID: "747756", delegate: self as UIViewController)
+    lServerManagerInterface = STSLibrary(merchantID: "111111111111", terminalID: "245", transactionID: "747756", delegate: self as UIViewController)
   }
   
   override func didReceiveMemoryWarning() {
@@ -37,7 +37,7 @@ class TableViewController: UITableViewController {
     })
   }
   @IBAction func activateGiftCard(_ sender: AnyObject) {
-    lServerManagerInterface?.sendDataToActivateGiftCard(cardNumber: "711111001198730", amount: "0.2", entryMode: ServerNetworkInterface.EntryMode.Manual, clerkID: nil, onSuccess: { (serverResponse) in
+    lServerManagerInterface?.sendDataToActivateGiftCard(cardNumber: "711111001198730", amount: "0.2", entryMode: STSLibrary.EntryMode.Manual, clerkID: nil, onSuccess: { (serverResponse) in
       self.presentAlert(withMessage: serverResponse.description)
       
     }) { (serverResponse) in
@@ -49,7 +49,7 @@ class TableViewController: UITableViewController {
   
   @IBAction func activateEGiftCard(_ sender: AnyObject) {
     
-    lServerManagerInterface?.sendDataToActivateEGiftCard(amount: "711111001198730", clerkID: nil,entryMode: ServerNetworkInterface.EntryMode.Manual, onSuccess: { (serverResponse) in
+    lServerManagerInterface?.sendDataToActivateEGiftCard(amount: "711111001198730", clerkID: nil,entryMode: STSLibrary.EntryMode.Manual, onSuccess: { (serverResponse) in
       self.presentAlert(withMessage: serverResponse.description)
       
     }) { (serverResponse) in
@@ -59,7 +59,7 @@ class TableViewController: UITableViewController {
   
   @IBAction func redeemGiftcard(_ sender: AnyObject) {
     
-    lServerManagerInterface?.sendDataToRedeemGiftCard(cardNumber: "711111001198730", amount: "0.2",entryMode: ServerNetworkInterface.EntryMode.Manual, clerkID: nil, onSuccess: { (serverResponse) in
+    lServerManagerInterface?.sendDataToRedeemGiftCard(cardNumber: "711111001198730", amount: "0.2",entryMode: STSLibrary.EntryMode.Manual, clerkID: nil, onSuccess: { (serverResponse) in
       self.presentAlert(withMessage: serverResponse.description)
     }) { (serverResponse) in
       self.presentAlert(withMessage: serverResponse)
@@ -68,7 +68,7 @@ class TableViewController: UITableViewController {
   
   @IBAction func voidGiftcard(_ sender: AnyObject) {
     
-    lServerManagerInterface?.sendDataToVoidGiftCardItem(item: "0001", clerkID: nil,entryMode: ServerNetworkInterface.EntryMode.Manual, onSuccess: { (serverResponse) in
+    lServerManagerInterface?.sendDataToVoidGiftCardItem(item: "0001", clerkID: nil,entryMode: STSLibrary.EntryMode.Manual, onSuccess: { (serverResponse) in
       self.presentAlert(withMessage: serverResponse.description)
     }) { (serverResponse) in
       self.presentAlert(withMessage: serverResponse)
@@ -76,7 +76,7 @@ class TableViewController: UITableViewController {
   }
   
   @IBAction func giftBalanceEnquiry(_ sender: AnyObject) {
-    lServerManagerInterface?.sendDataToEnquireBalance(cardNumber: "711111001198730", clerkID: nil,entryMode: ServerNetworkInterface.EntryMode.Manual, option: ServerNetworkInterface.BalanceOption.BalanceOfGiftCard, onSuccess: { (serverResponse) in
+    lServerManagerInterface?.sendDataToEnquireBalance(cardNumber: "711111001198730", clerkID: nil,entryMode: STSLibrary.EntryMode.Manual, option: STSLibrary.BalanceOption.BalanceOfGiftCard, onSuccess: { (serverResponse) in
       self.presentAlert(withMessage: serverResponse.description)
     }) { (serverResponse) in
       self.presentAlert(withMessage: serverResponse)
@@ -84,7 +84,7 @@ class TableViewController: UITableViewController {
   }
   
   @IBAction func loyaltyAccural(_ sender: AnyObject) {
-    lServerManagerInterface?.sendDataToLoyaltyAccural(cardNumber: "711111001198730", amount: "0.2",entryMode: ServerNetworkInterface.EntryMode.Manual, clerkID: nil, onSuccess: { (serverResponse) in
+    lServerManagerInterface?.sendDataToLoyaltyAccural(cardNumber: "711111001198730", amount: "0.2",entryMode: STSLibrary.EntryMode.Manual, clerkID: nil, onSuccess: { (serverResponse) in
       self.presentAlert(withMessage: serverResponse.description)
     }) { (serverResponse) in
       self.presentAlert(withMessage: serverResponse)
@@ -92,7 +92,7 @@ class TableViewController: UITableViewController {
   }
   
   @IBAction func loyaltyRedemption(_ sender: AnyObject) {
-    lServerManagerInterface?.sendDataToRedeemLoyalty(cardNumber: "711111001198730", amount: "0.2",entryMode: ServerNetworkInterface.EntryMode.Manual, clerkID: nil, onSuccess: { (serverResponse) in
+    lServerManagerInterface?.sendDataToRedeemLoyalty(cardNumber: "711111001198730", amount: "0.2",entryMode: STSLibrary.EntryMode.Manual, clerkID: nil, onSuccess: { (serverResponse) in
       self.presentAlert(withMessage: serverResponse.description)
     }) { (serverResponse) in
       self.presentAlert(withMessage: serverResponse)
@@ -100,7 +100,7 @@ class TableViewController: UITableViewController {
   }
   
   @IBAction func loyaltyBalanceEnquiry(_ sender: AnyObject) {
-    lServerManagerInterface?.sendDataToEnquireBalance(cardNumber: "711111001198730", clerkID: nil,entryMode: ServerNetworkInterface.EntryMode.Manual, option: ServerNetworkInterface.BalanceOption.LoyaltyBalanceEnquiry, onSuccess: { (serverResponse) in
+    lServerManagerInterface?.sendDataToEnquireBalance(cardNumber: "711111001198730", clerkID: nil,entryMode: STSLibrary.EntryMode.Manual, option: STSLibrary.BalanceOption.LoyaltyBalanceEnquiry, onSuccess: { (serverResponse) in
       self.presentAlert(withMessage: serverResponse.description)
     }) { (serverResponse) in
       self.presentAlert(withMessage: serverResponse)
