@@ -1,0 +1,10 @@
+framework module STSLibrary {
+  umbrella header "STSLibrary-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module STSLibrary.Swift {
+    header "STSLibrary-Swift.h"
+}

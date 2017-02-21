@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/chetu/Documents/STSLibrary2/Example/build/Debug-iphoneos/STSLibrary/STSLibrary.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/chetu/Documents/STSLibrary2/Example/build/Pods.build/Debug-iphoneos/STSLibrary.build/unextended-module.modulemap',
+    }]
+  }]
+}

@@ -1,0 +1,6 @@
+framework module Pods_STSLibrary_Example {
+  umbrella header "Pods-STSLibrary_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
