@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ServerManager: NSObject,NSURLConnectionDelegate, NSURLConnectionDataDelegate {
+class ServerManager: NSObject {
     var receivedData = NSMutableData();
     var isForReport = false
     var successBlockForReport:(_ responseDict:String)->Void = {_ in }
@@ -30,6 +30,16 @@ class ServerManager: NSObject,NSURLConnectionDelegate, NSURLConnectionDataDelega
         isForReport = true
     }
     
+    /***********************************************************************************************************
+     <Name> makePostRequest </Name>
+     <Input Type>   url:String, postDataDic:NSDictionary, viewControllerContext:UIViewController </Input Type>
+     <Return>  </Return>
+     <Purpose> This method post request on the specified url with dictionary as action parameter and initialize the spinner </Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   29/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
     func makePostRequest(url:String, postDataDic:NSDictionary, viewControllerContext:UIViewController){
         if(validateDictionary(dict: postDataDic)){
             var postString = self.getXMLFromDict(dict: postDataDic)
@@ -55,9 +65,20 @@ class ServerManager: NSObject,NSURLConnectionDelegate, NSURLConnectionDataDelega
         }
     }
     
+    
+    /***********************************************************************************************************
+     <Name> makePostRequestForReport </Name>
+     <Input Type>   url:String, postDataDic:NSDictionary, viewControllerContext:UIViewController </Input Type>
+     <Return>  </Return>
+     <Purpose> This method post request for Report on the specified url with dictionary as action parameter and initialize the spinner </Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>  22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
     func makePostRequestForReport(url:String, postDataDic:NSDictionary, viewControllerContext:UIViewController){
         if(validateDictionary(dict: postDataDic)){
-            var postString = self.createStringUsingDictionary(dataDic: postDataDic)
+            var postString = getXMLFromDict(dict: postDataDic) //self.createStringUsingDictionary(dataDic: postDataDic)
             let msgLength = "\(postString.characters.count)"
             
             let request = NSMutableURLRequest(url: URL(string: url)!)
@@ -80,6 +101,17 @@ class ServerManager: NSObject,NSURLConnectionDelegate, NSURLConnectionDataDelega
         }
     }
     
+    
+    /***********************************************************************************************************
+     <Name> validateDictionary </Name>
+     <Input Type>   NSDictionary </Input Type>
+     <Return> Bool </Return>
+     <Purpose> This method validate the dictionary and return true if specified dictionary is valid (Avoid Nil parameter in HTTP action code) </Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
     func validateDictionary(dict:NSDictionary) -> Bool {
         for (key,value) in dict{
             if((value as AnyObject) == nil){
@@ -94,6 +126,17 @@ class ServerManager: NSObject,NSURLConnectionDelegate, NSURLConnectionDataDelega
         return true
     }
     
+    /***********************************************************************************************************
+     <Name> getXMLFromDict </Name>
+     <Input Type>   NSDictionary </Input Type>
+     <Return> String </Return>
+     <Purpose> This method validate the dictionary and return true if specified dictionary is valid (Avoid Nil parameter in HTTP action code) </Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
+
     func getXMLFromDict(dict:NSDictionary)->String{
         var xmlString = "<Request>"
         for(key, value) in dict{
@@ -105,42 +148,16 @@ class ServerManager: NSObject,NSURLConnectionDelegate, NSURLConnectionDataDelega
         
     }
     
-    func connection(_ connection: NSURLConnection, didReceive response: URLResponse) {
-        _ = response as! HTTPURLResponse;
-        receivedData.length = 0
-        
-    }
-    
-    func connection(_ connection: NSURLConnection, didReceive data: Data) {
-        receivedData.append(data as Data)
-    }
-    
-    func connectionDidFinishLoading(_ connection: NSURLConnection) {
-        
-        let dataString = String(data: receivedData as Data, encoding: String.Encoding.utf8);
-        let error = NSError()
-        
-        //Hiding loading view
-        loaderView.removeFromSuperview()
-        if(isForReport){
-            self.successBlockForReport(dataString!)
-        }
-        else{
-            let searchData = XmlReader.dictionaryForXMLString(string: dataString!, error: error)
-            self.successBlock(searchData)
-        }
-    }
-    
-    func connection(_ connection: NSURLConnection, didFailWithError error: Error) {
-        //[self HideLoadingLoaderView];
-        
-        self.showAlertView(onView: delegate as! UIViewController, messageString: error.localizedDescription, cancelText: "OK", otherText: nil, titleString: "Error")
-        loaderView.removeFromSuperview()
-        self.failureBlock(error.localizedDescription)
-        
-    }
-    
-    
+    /***********************************************************************************************************
+     <Name> showAlertView </Name>
+     <Input Type>   onView:UIViewController,messageString:String,cancelText:String,otherText:String?,titleString:String) </Input Type>
+     <Return>  </Return>
+     <Purpose> This method present an alert view on the current ViewController </Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
     
     func showAlertView(onView:UIViewController,messageString:String,cancelText:String,otherText:String?,titleString:String){
         let alertController = UIAlertController(title: titleString, message: messageString, preferredStyle:.alert)
@@ -150,6 +167,17 @@ class ServerManager: NSObject,NSURLConnectionDelegate, NSURLConnectionDataDelega
         onView.present(alertController, animated: true, completion: nil)
     }
     
+    
+    /***********************************************************************************************************
+     <Name> urlEncodeString </Name>
+     <Input Type> String </Input Type>
+     <Return> String </Return>
+     <Purpose> This method varify the url , if it contain any unspecified character </Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
     func urlEncodeString(str:(String)) -> String {
         let unreserved = "!*'();:@&=+$,/?%#[]"
         let allowed = NSMutableCharacterSet.alphanumeric()
@@ -158,6 +186,18 @@ class ServerManager: NSObject,NSURLConnectionDelegate, NSURLConnectionDataDelega
         return str.addingPercentEncoding( withAllowedCharacters: allowed as CharacterSet)!
     }
     
+    
+    /***********************************************************************************************************
+     <Name> createStringUsingDictionary </Name>
+     <Input Type>   NSDictionary </Input Type>
+     <Return> String </Return>
+     <Purpose> This method return the post url by accpting the dictionary </Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
+
     func createStringUsingDictionary(dataDic:NSDictionary) -> String {
         var string = ""
         var keyCounter = 0
@@ -178,3 +218,48 @@ class ServerManager: NSObject,NSURLConnectionDelegate, NSURLConnectionDataDelega
     }
     
 }
+
+extension ServerManager:NSURLConnectionDelegate{
+    func connection(_ connection: NSURLConnection, didFailWithError error: Error) {
+        //[self HideLoadingLoaderView];
+        
+        self.showAlertView(onView: delegate as! UIViewController, messageString: error.localizedDescription, cancelText: "OK", otherText: nil, titleString: "Error")
+        loaderView.removeFromSuperview()
+        self.failureBlock(error.localizedDescription)
+        
+    }
+
+    func connectionDidFinishLoading(_ connection: NSURLConnection) {
+        
+        let dataString = String(data: receivedData as Data, encoding: String.Encoding.utf8);
+        let error = NSError()
+        
+        //Hiding loading view
+        loaderView.removeFromSuperview()
+        if(isForReport){
+            self.successBlockForReport(dataString!)
+        }
+        else{
+            let searchData = XmlReader.dictionaryForXMLString(string: dataString!, error: error)
+            self.successBlock(searchData)
+        }
+    }
+}
+
+
+extension ServerManager:NSURLConnectionDataDelegate{
+    func connection(_ connection: NSURLConnection, didReceive response: URLResponse) {
+        _ = response as! HTTPURLResponse;
+        receivedData.length = 0
+        
+    }
+    
+    func connection(_ connection: NSURLConnection, didReceive data: Data) {
+        
+        receivedData.append(data as Data)
+
+        let recevedString = String(data: data, encoding: String.Encoding.utf8)
+    }
+    
+}
+

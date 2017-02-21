@@ -42,13 +42,61 @@ public class STSLibrary:NSObject{
     
     let kBaseURLForMerchantDetail = "https://www.smart-transactions.com/xmlapi/" //client URL
     
-    let kBaseURL = "https://smarttransactions.net/gateway_no_lrc.php"
-    
+    let kBaseURL = "https://smarttransactions.net/gateway_app.php"    //"https://smarttransactions.net/gateway_no_lrc.php" -> old URL
+    let emptyString = ""
     var merchantID = ""
     var terminalID = ""
     var transactionID = ""
     var serverManager:ServerManager
     var delegate:UIViewController
+    
+    // Dictionary Key Identifier
+    let kTrackData2 = "Track_Data2"
+    let kMerchant_Number = "Merchant_Number"
+    let kTerminal_ID = "Terminal_ID"
+    let kTransaction_ID = "Transaction_ID"
+    let kMerchant_name = "merchant_name"
+    let kContact_fname = "contact_fname"
+    let kContact_lname = "contact_lname"
+    let kAddress1 = "address1"
+    let kAddress2 = "address2"
+    let kCity = "city"
+    let kState = "state"
+    let kZip = "zip"
+    let kCountry = "country"
+    let kPhone = "phone"
+    let kEmail = "email"
+    let kGet = "get"
+    let kActionCode = "Action_Code"
+    let kCardNumber = "Card_Number"
+    let kTrue = "true"
+    let kFalse = "false"
+    let defaultActionCodeForReport = "23"
+    let defaultActionCodeForMerchant = "30"
+    let defaultTerminalID = "046"
+    let defaultMerchantID = "400000000001"
+    let defaultTerminalIDForNewMerchant = "001"
+    let defaultCountry = "USA"
+    let kFullDate = "fullDate"
+    let kAuthReference = "Auth_Reference"
+    let kAPIKey = "API_Key"
+    let kTransationType = "Trans_Type"
+    let kPOSEntryMode = "POS_Entry_Mode"
+    let kClerkID = "Clerk_ID"
+    let kTicket = "Ticket"
+    let kBussinessType = "Business_Type"
+    let kTransactionAmount = "Transaction_Amount"
+    let kNewAccountRequired = "NewAccountRQ"
+    
+
+    let kGift = "Gift"
+    let kHouseAccount = "House_Account"
+    let kServiceCard = "Service_Card"
+    let kLoyalty = "Loyalty"
+    let kLayaway = "Layaway"
+    
+    let kNo = "N"
+    let kYes = "Y"
     
     public enum BalanceOption {
         case BalanceOfGiftCard
@@ -69,198 +117,292 @@ public class STSLibrary:NSObject{
         super.init()
     }
     
+    
+    
+    /***********************************************************************************************************
+     <Name> sendDataToActivateGiftCard </Name>
+     <Input Type>   cardNumber:String,amount:String,entryMode:EntryMode,clerkID:String?,onSuccess:@escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void </Input Type>
+     <Return>   </Return>
+     <Purpose> This method make post request for ADD/ACTIVATE gift option of Gift section</Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
     public func sendDataToActivateGiftCard(cardNumber:String,amount:String,entryMode:EntryMode,clerkID:String?,onSuccess:@escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void){
         
         let dict = NSMutableDictionary()
         serverManager = ServerManager(delegate: delegate, successBlock: onSuccess, failureBlock: onFailure)
-        dict["Merchant_Number"] = merchantID
-        dict["Terminal_ID"] = terminalID
-        dict["Transaction_Amount"] = amount
-        dict["Card_Number"] = cardNumber
-        dict["API_Key"] = kApiKey
-        dict["Action_Code"] = kActioncodeForAddCash
-        dict["Trans_Type"] = kTransactiontypeNonLoyality
+        dict[kMerchant_Number] = merchantID
+        dict[kTerminal_ID] = terminalID
+        dict[kTransactionAmount] = amount
+        dict[kCardNumber] = cardNumber
+        dict[kAPIKey] = kApiKey
+        dict[kActionCode] = kActioncodeForAddCash
+        dict[kTransationType] = kTransactiontypeNonLoyality
         if(entryMode == EntryMode.Manual){
-            dict["POS_Entry_Mode"] = kPosEntryModeManual
+            dict[kPOSEntryMode] = kPosEntryModeManual
         }else{
-            dict["POS_Entry_Mode"] = kPosEntryModeSwipe
+            dict[kPOSEntryMode] = kPosEntryModeSwipe
         }
         
         if(clerkID != nil)
         {
-            dict["Clerk_ID"] = clerkID
+            dict[kClerkID] = clerkID
         }
         serverManager.makePostRequest(url: kBaseURL, postDataDic: dict, viewControllerContext: delegate )
     }
     
+    
+    /***********************************************************************************************************
+     <Name> sendDataToActivateEGiftCard </Name>
+     <Input Type>   amount:String,clerkID:String?,entryMode:EntryMode,onSuccess: @escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void){
+     serverManager = ServerManager(delegate: delegate, successBlock: onSuccess, failureBlock: onFailure </Input Type>
+     <Return>   </Return>
+     <Purpose> This method make post request for ACTIVATE E-GIFT gift option of Gift section</Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
     public func sendDataToActivateEGiftCard(amount:String,clerkID:String?,entryMode:EntryMode,onSuccess: @escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void){
         serverManager = ServerManager(delegate: delegate, successBlock: onSuccess, failureBlock: onFailure)
         let dict = NSMutableDictionary()
-        dict["Merchant_Number"] = merchantID
-        dict["Terminal_ID"] = terminalID
-        dict["Transaction_Amount"] = amount
-        dict["Card_Number"] = "NewAccountRQ"
-        dict["API_Key"] = kApiKey
-        dict["Action_Code"] = kActioncodeForAddCashEGift
-        dict["Trans_Type"] = kTransactiontypeNonLoyality
+        dict[kMerchant_Number] = merchantID
+        dict[kTerminal_ID] = terminalID
+        dict[kTransactionAmount] = amount
+        dict[kCardNumber] = kNewAccountRequired
+        dict[kAPIKey] = kApiKey
+        dict[kActionCode] = kActioncodeForAddCashEGift
+        dict[kTransationType] = kTransactiontypeNonLoyality
         if(entryMode == EntryMode.Manual){
-            dict["POS_Entry_Mode"] = kPosEntryModeManual
+            dict[kPOSEntryMode] = kPosEntryModeManual
         }else{
-            dict["POS_Entry_Mode"] = kPosEntryModeSwipe
+            dict[kPOSEntryMode] = kPosEntryModeSwipe
         }
         
         if(clerkID != nil)
         {
-            dict["Clerk_ID"] = clerkID
+            dict[kClerkID] = clerkID
         }
         serverManager.makePostRequest(url: kBaseURL, postDataDic: dict, viewControllerContext: delegate )
     }
     
+    
+    /***********************************************************************************************************
+     <Name> sendDataToRedeemGiftCard </Name>
+     <Input Type>  cardNumber:String,amount:String,entryMode:EntryMode,clerkID:String?,onSuccess: @escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void </Input Type>
+     <Return>   </Return>
+     <Purpose> This method make post request for REDEEM gift option of Gift section</Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
+
     public func sendDataToRedeemGiftCard(cardNumber:String,amount:String,entryMode:EntryMode,clerkID:String?,onSuccess: @escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void){
         
         serverManager = ServerManager(delegate: delegate, successBlock: onSuccess, failureBlock: onFailure)
         let dict = NSMutableDictionary()
-        dict["Merchant_Number"] = merchantID
-        dict["Terminal_ID"] = terminalID
-        dict["Transaction_Amount"] = amount
-        dict["Card_Number"] = cardNumber
-        dict["API_Key"] = kApiKey
-        dict["Action_Code"] = kActioncodeForDeduceCash
-        dict["Business_Type"] = kBusinessTypeRestaurent
-        dict["Trans_Type"] = kTransactiontypeNonLoyality
+        dict[kMerchant_Number] = merchantID
+        dict[kTerminal_ID] = terminalID
+        dict[kTransactionAmount] = amount
+        dict[kCardNumber] = cardNumber
+        dict[kAPIKey] = kApiKey
+        dict[kActionCode] = kActioncodeForDeduceCash
+        dict[kBussinessType] = kBusinessTypeRestaurent
+        dict[kTransationType] = kTransactiontypeNonLoyality
         if(entryMode == EntryMode.Manual){
-            dict["POS_Entry_Mode"] = kPosEntryModeManual
+            dict[kPOSEntryMode] = kPosEntryModeManual
         }else{
-            dict["POS_Entry_Mode"] = kPosEntryModeSwipe
+            dict[kPOSEntryMode] = kPosEntryModeSwipe
         }
         
         if(clerkID != nil)
         {
-            dict["Clerk_ID"] = clerkID
+            dict[kClerkID] = clerkID
         }
         serverManager.makePostRequest(url: kBaseURL, postDataDic: dict, viewControllerContext: delegate )
     }
     
+    
+    
+    /***********************************************************************************************************
+     <Name> sendDataToRedeemLoyalty </Name>
+     <Input Type>  cardNumber:String,amount:String,entryMode:EntryMode,clerkID:String?,onSuccess:@escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void </Input Type>
+     <Return>   </Return>
+     <Purpose> This method make post request for REDEEM gift option of LOYALTY section</Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
+
     public func sendDataToRedeemLoyalty(cardNumber:String,amount:String,entryMode:EntryMode,clerkID:String?,onSuccess:@escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void){
         
         serverManager = ServerManager(delegate: delegate, successBlock: onSuccess, failureBlock: onFailure)
         
         let dict = NSMutableDictionary()
-        dict["Merchant_Number"] = merchantID
-        dict["Terminal_ID"] = terminalID
-        dict["Transaction_Amount"] = amount
-        dict["Card_Number"] = cardNumber
-        dict["API_Key"] = kApiKey
-        dict["Action_Code"] = kActioncodeForRedeemLoyality
-        dict["Business_Type"] = kBusinessTypeRestaurent
-        dict["Trans_Type"] = kTransactiontypeLoyality
+        dict[kMerchant_Number] = merchantID
+        dict[kTerminal_ID] = terminalID
+        dict[kTransactionAmount] = amount
+        dict[kCardNumber] = cardNumber
+        dict[kAPIKey] = kApiKey
+        dict[kActionCode] = kActioncodeForRedeemLoyality
+        dict[kBussinessType] = kBusinessTypeRestaurent
+        dict[kTransationType] = kTransactiontypeLoyality
         if(entryMode == EntryMode.Manual){
-            dict["POS_Entry_Mode"] = kPosEntryModeManual
+            dict[kPOSEntryMode] = kPosEntryModeManual
         }else{
-            dict["POS_Entry_Mode"] = kPosEntryModeSwipe
+            dict[kPOSEntryMode] = kPosEntryModeSwipe
         }
-        dict["Transaction_ID"] = transactionID
+        dict[kTransaction_ID] = transactionID
         if(clerkID != nil)
         {
-            dict["Clerk_ID"] = clerkID
+            dict[kClerkID] = clerkID
         }
         serverManager.makePostRequest(url: kBaseURL, postDataDic: dict, viewControllerContext: delegate )
     }
     
+    
+    /***********************************************************************************************************
+     <Name> sendDataToLoyaltyAccural </Name>
+     <Input Type>  cardNumber:String,amount:String,entryMode:EntryMode,clerkID:String?,onSuccess:@escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void </Input Type>
+     <Return>   </Return>
+     <Purpose> This method make post request for ACCRUAL gift option of LOYALTY section</Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
     public func sendDataToLoyaltyAccural(cardNumber:String,amount:String,entryMode:EntryMode,clerkID:String?,onSuccess:@escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void){
         serverManager = ServerManager(delegate: delegate, successBlock: onSuccess, failureBlock: onFailure)
         let dict = NSMutableDictionary()
-        dict["Merchant_Number"] = merchantID
-        dict["Terminal_ID"] = terminalID
-        dict["Transaction_Amount"] = amount
-        dict["Card_Number"] = cardNumber
-        dict["API_Key"] = kApiKey
-        dict["Action_Code"] = kActioncodeForAddLoyality
-        dict["Business_Type"] = kBusinessTypeRestaurent
-        dict["Trans_Type"] = kTransactiontypeLoyality
+        dict[kMerchant_Number] = merchantID
+        dict[kTerminal_ID] = terminalID
+        dict[kTransactionAmount] = amount
+        dict[kCardNumber] = cardNumber
+        dict[kAPIKey] = kApiKey
+        dict[kActionCode] = kActioncodeForAddLoyality
+        dict[kBussinessType] = kBusinessTypeRestaurent
+        dict[kTransationType] = kTransactiontypeLoyality
         if(entryMode == EntryMode.Manual){
-            dict["POS_Entry_Mode"] = kPosEntryModeManual
+            dict[kPOSEntryMode] = kPosEntryModeManual
         }else{
-            dict["POS_Entry_Mode"] = kPosEntryModeSwipe
+            dict[kPOSEntryMode] = kPosEntryModeSwipe
         }
-        dict["Transaction_ID"] = transactionID
-        dict["Ticket"] = ""
+        dict[kTransaction_ID] = transactionID
+        dict[kTicket] = emptyString
         if(clerkID != nil)
         {
-            dict["Clerk_ID"] = clerkID
+            dict[kClerkID] = clerkID
         }
         serverManager.makePostRequest(url: kBaseURL, postDataDic: dict, viewControllerContext: delegate )
     }
+   
     
+
+    /***********************************************************************************************************
+     <Name> sendDataToEnquireBalance </Name>
+     <Input Type>  cardNumber:String,amount:String,entryMode:EntryMode,clerkID:String?,onSuccess:@escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void </Input Type>
+     <Return>   </Return>
+     <Purpose> This method make post request for BALANCE ENQUIRY option of LOYALTY and GIFT section</Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
+
     public func sendDataToEnquireBalance(cardNumber:String,clerkID:String?,entryMode:EntryMode,option:BalanceOption,onSuccess:@escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void){
         
         serverManager = ServerManager(delegate: delegate, successBlock: onSuccess, failureBlock: onFailure)
         let dict = NSMutableDictionary()
-        dict["Merchant_Number"] = merchantID
-        dict["Terminal_ID"] = terminalID
+        dict[kMerchant_Number] = merchantID
+        dict[kTerminal_ID] = terminalID
         
         
-        dict["API_Key"] = kApiKey
-        dict["Action_Code"] = kActioncodeForBalanceEnquiry
+        dict[kAPIKey] = kApiKey
+        dict[kActionCode] = kActioncodeForBalanceEnquiry
         
         if(option == BalanceOption.BalanceOfGiftCard){
-            dict["Trans_Type"] = kTransactiontypeNonLoyality
+            dict[kTransationType] = kTransactiontypeNonLoyality
         }else{
-            dict["Trans_Type"] = kTransactiontypeLoyality
+            dict[kTransationType] = kTransactiontypeLoyality
         }
         
         if(entryMode == EntryMode.Manual){
-            dict["POS_Entry_Mode"] = kPosEntryModeManual
+            dict[kPOSEntryMode] = kPosEntryModeManual
         }else{
-            dict["POS_Entry_Mode"] = kPosEntryModeSwipe
+            dict[kPOSEntryMode] = kPosEntryModeSwipe
         }
         
         if(clerkID != nil)
         {
-            dict["Clerk_ID"] = clerkID
+            dict[kClerkID] = clerkID
         }
-        if((dict["POS_Entry_Mode"] as! String) == kPosEntryModeSwipe){
-            dict["Track_Data2"] = cardNumber
+        if((dict[kPOSEntryMode] as! String) == kPosEntryModeSwipe){
+            dict[kTrackData2] = cardNumber
         }else{
-            dict["Card_Number"] = cardNumber
+            dict[kCardNumber] = cardNumber
         }
         serverManager.makePostRequest(url: kBaseURL, postDataDic: dict, viewControllerContext: delegate )
     }
     
+    /***********************************************************************************************************
+     <Name> sendDataToVoidGiftCardItem </Name>
+     <Input Type> item:String,clerkID:String?,entryMode:EntryMode,onSuccess:@escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void </Input Type>
+     <Return>   </Return>
+     <Purpose> This method make post request for VOID gift option of GIFT section</Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
     public func sendDataToVoidGiftCardItem(item:String,clerkID:String?,entryMode:EntryMode,onSuccess:@escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void){
         
         serverManager = ServerManager(delegate: delegate, successBlock: onSuccess, failureBlock: onFailure)
         let dict = NSMutableDictionary()
-        dict["Merchant_Number"] = merchantID
-        dict["Terminal_ID"] = terminalID
-        dict["Auth_Reference"] = item
-        dict["API_Key"] = kApiKey
-        dict["Action_Code"] = kActioncodeForVoidTransaction
-        dict["Trans_Type"] = kTransactiontypeNonLoyality
+        dict[kMerchant_Number] = merchantID
+        dict[kTerminal_ID] = terminalID
+        dict[kAuthReference] = item
+        dict[kAPIKey] = kApiKey
+        dict[kActionCode] = kActioncodeForVoidTransaction
+        dict[kTransationType] = kTransactiontypeNonLoyality
         if(entryMode == EntryMode.Manual){
-            dict["POS_Entry_Mode"] = kPosEntryModeManual
+            dict[kPOSEntryMode] = kPosEntryModeManual
         }else{
-            dict["POS_Entry_Mode"] = kPosEntryModeSwipe
+            dict[kPOSEntryMode] = kPosEntryModeSwipe
         }
-        dict["Transaction_ID"] = transactionID
+        dict[kTransaction_ID] = transactionID
         if(clerkID != nil)
         {
-            dict["Clerk_ID"] = clerkID
+            dict[kClerkID] = clerkID
         }
         serverManager.makePostRequest(url: kBaseURL, postDataDic: dict, viewControllerContext: delegate )
         
     }
     
+    
+    /***********************************************************************************************************
+     <Name> getGiftCardDetailReport </Name>
+     <Input Type> forDate date:String,isForGift:Bool,onSuccess:@escaping (_ successResponse:String) -> Void,onFailure:@escaping (_ failureResponse:String </Input Type>
+     <Return>   </Return>
+     <Purpose> This method make post request for GIFT CARD DETAIL REPORT gift option of REPORT section</Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
     public func getGiftCardDetailReport(forDate date:String,isForGift:Bool,onSuccess:@escaping (_ successResponse:String) -> Void,onFailure:@escaping (_ failureResponse:String)->Void){
         
         
         let dict = NSMutableDictionary()
-        dict["Merchant_Number"] = merchantID
-        dict["Terminal_ID"] = terminalID
-        dict["Transaction_ID"] = transactionID
-        dict["fullDate"] = date
-        dict["get"] = "false"
-        var url = ""
+        dict[kMerchant_Number] = merchantID
+        dict[kTerminal_ID] = terminalID
+        dict[kTransaction_ID] = transactionID
+        dict[kFullDate] = date
+        dict[kGet] = kFalse
+        var url = emptyString
         if(isForGift){
             url =  kBaseURLForMerchantDetail.appending(kReportGiftDetailViewURL)
         }else{
@@ -270,37 +412,73 @@ public class STSLibrary:NSObject{
         serverManager.makePostRequestForReport(url: url, postDataDic: dict, viewControllerContext: delegate)
     }
     
+
+    
+    /***********************************************************************************************************
+     <Name> getCardDetailStatement </Name>
+     <Input Type> forCard cardNumber:String,onSuccess:@escaping (_ successResponse:String) -> Void,onFailure:@escaping (_ failureResponse:String)->Void </Input Type>
+     <Return>   </Return>
+     <Purpose> This method make post request for GIFT CARD STATEMENT gift option of REPORT section</Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
     public func getCardDetailStatement(forCard cardNumber:String,onSuccess:@escaping (_ successResponse:String) -> Void,onFailure:@escaping (_ failureResponse:String)->Void){
         let dict = NSMutableDictionary()
-        dict["Merchant_Number"] = merchantID
-        dict["Terminal_ID"] = terminalID
-        dict["Transaction_ID"] = transactionID
-        dict["Card_Number"] = cardNumber
-        dict["fullDate"] = ""
-        dict["get"] = "false"
-        let url = kBaseURLForMerchantDetail.appending(kReportCardholderDetailViewURL)
+        dict[kMerchant_Number] = merchantID
+        dict[kTerminal_ID] = terminalID
+        dict[kTransaction_ID] = transactionID
+        dict[kCardNumber] = cardNumber
+        dict[kFullDate] = emptyString
+        dict[kGet] = kFalse
+        dict[kPOSEntryMode] = kPosEntryModeManual
+        dict[kActionCode] = defaultActionCodeForReport
+        
+        let url = kBaseURL//ForMerchantDetail.appending(kReportCardholderDetailViewURL)
         serverManager = ServerManager(delegate: delegate, successBlockForReport: onSuccess, failureBlock: onFailure)
         serverManager.makePostRequestForReport(url: url, postDataDic: dict, viewControllerContext: delegate)
         
     }
+    
+   
+    
+    /***********************************************************************************************************
+     <Name> sendContactInfoToServer </Name>
+     <Input Type> merchantName:String,firstName:String,lastName:String,address1:String,address2:String,city:String,state:String,zip:String,phone:String,email:String,onSuccess:@escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void </Input Type>
+     <Return>   </Return>
+     <Purpose> This method make post whenever user tap on NEW MERCHANT Option</Purpose>
+     <History>
+     <Header> Version 1.0 </Header>
+     <Date>   22/12/16 </Date>
+     </History>
+     ***********************************************************************************************************/
     public func sendContactInfoToServer(merchantName:String,firstName:String,lastName:String,address1:String,address2:String,city:String,state:String,zip:String,phone:String,email:String,onSuccess:@escaping (_ successResponse:NSDictionary) -> Void,onFailure:@escaping (_ failureResponse:String)->Void){
         let dict = NSMutableDictionary()
-        dict["Merchant_Number"] = "571141001001"
-        dict["Terminal_ID"] = "001"
-        dict["Transaction_ID"] = transactionID
-        dict["merchant_name"] = merchantName
-        dict["contact_fname"] = firstName
-        dict["contact_lname"] = lastName
-        dict["address1"] = address1
-        dict["address2"] = address2
-        dict["city"] = city
-        dict["state"] = state
-        dict["zip"] = zip
-        dict["country"] = "USA"
-        dict["phone"] = phone
-        dict["email"] = email
-        dict["get"] = "true"
-        dict["Action_Code"] = "30"
+        dict[kMerchant_Number] = defaultMerchantID //merchantID
+        dict[kTerminal_ID] = defaultTerminalIDForNewMerchant//defaultTerminalID
+        dict[kTransaction_ID] = emptyString
+        dict[kMerchant_name] = merchantName
+        dict[kContact_fname] = firstName
+        dict[kContact_lname] = lastName
+        dict[kAddress1] = address1
+        dict[kAddress2] = address2
+        dict[kCity] = city
+        dict[kState] = state
+        dict[kZip] = zip
+        dict[kCountry] = defaultCountry
+        dict[kPhone] = phone
+        dict[kEmail] = email
+        dict[kGet] = kTrue
+        dict[kActionCode] = defaultActionCodeForMerchant
+        dict[kPOSEntryMode] = kPosEntryModeManual
+        dict[kGift] = kYes
+        dict[kHouseAccount] = kNo
+        dict[kServiceCard] = kNo
+        dict[kLoyalty] = kNo
+        dict[kLayaway] = kNo
+        
+        
         let url = kBaseURL//kBaseURLForMerchantDetail.appending(kSetUpMerchantURL)
         serverManager = ServerManager(delegate: delegate, successBlock: onSuccess, failureBlock: onFailure)
         serverManager.makePostRequest(url: url, postDataDic: dict, viewControllerContext: delegate)
