@@ -475,7 +475,7 @@ public class STSLibrary:NSObject{
         dict[kGift] = kYes
         dict[kHouseAccount] = kNo
         dict[kServiceCard] = kNo
-        dict[kLoyalty] = kNo
+        dict[kLoyalty] = kYes
         dict[kLayaway] = kNo
         
         
