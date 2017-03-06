@@ -28,6 +28,8 @@ public class STSLibrary:NSObject{
     let kActioncodeForAddTrip = "10"
     let kActioncodeForVoidTransaction = "11"
     let kActioncodeForRedemptionSale = "19"
+    let kActionCodeForClerkServer = "26"
+    let kActionCodeForDetailReport = "25"
     let kReportCardholderDetailViewURL = "giftcard.card_report.php"
     let kReportLoyaltyDetailViewURL = "giftcard.loyalty_report.php"
     let kSetUpMerchantURL = "giftcard.setup_merchant.php"
@@ -39,6 +41,7 @@ public class STSLibrary:NSObject{
     let kBusinessTypeRestaurent = "F"
     let kPosEntryModeSwipe = "S"
     let kPosEntryModeManual = "M"
+    let extraBit = "0000"
     
     let kBaseURLForMerchantDetail = "https://www.smart-transactions.com/xmlapi/" //client URL
     
@@ -319,8 +322,6 @@ public class STSLibrary:NSObject{
         let dict = NSMutableDictionary()
         dict[kMerchant_Number] = merchantID
         dict[kTerminal_ID] = terminalID
-        
-        
         dict[kAPIKey] = kApiKey
         dict[kActionCode] = kActioncodeForBalanceEnquiry
         
@@ -400,14 +401,22 @@ public class STSLibrary:NSObject{
         dict[kMerchant_Number] = merchantID
         dict[kTerminal_ID] = terminalID
         dict[kTransaction_ID] = transactionID
-        dict[kFullDate] = date
-        dict[kGet] = kFalse
-        var url = emptyString
+        dict[kPOSEntryMode] = kPosEntryModeManual
+        
+        
         if(isForGift){
-            url =  kBaseURLForMerchantDetail.appending(kReportGiftDetailViewURL)
+            dict[kTransactionAmount] = date
+            dict[kActionCode] = kActionCodeForDetailReport
         }else{
-            url =  kBaseURLForMerchantDetail.appending(kReportLoyaltyDetailViewURL)
+            
+            let formatedAmount = String(format: "%@%@", date,extraBit)
+            dict[kTransactionAmount] =  formatedAmount
+            dict[kActionCode] = kActionCodeForClerkServer
         }
+        
+        
+        
+         let url = kBaseURL
         serverManager = ServerManager(delegate: delegate, successBlockForReport: onSuccess, failureBlock: onFailure)
         serverManager.makePostRequestForReport(url: url, postDataDic: dict, viewControllerContext: delegate)
     }
@@ -430,12 +439,12 @@ public class STSLibrary:NSObject{
         dict[kTerminal_ID] = terminalID
         dict[kTransaction_ID] = transactionID
         dict[kCardNumber] = cardNumber
-        dict[kFullDate] = emptyString
-        dict[kGet] = kFalse
         dict[kPOSEntryMode] = kPosEntryModeManual
         dict[kActionCode] = defaultActionCodeForReport
         
-        let url = kBaseURL//ForMerchantDetail.appending(kReportCardholderDetailViewURL)
+        
+        
+        let url = kBaseURL
         serverManager = ServerManager(delegate: delegate, successBlockForReport: onSuccess, failureBlock: onFailure)
         serverManager.makePostRequestForReport(url: url, postDataDic: dict, viewControllerContext: delegate)
         
@@ -479,7 +488,7 @@ public class STSLibrary:NSObject{
         dict[kLayaway] = kNo
         
         
-        let url = kBaseURL//kBaseURLForMerchantDetail.appending(kSetUpMerchantURL)
+        let url = kBaseURL
         serverManager = ServerManager(delegate: delegate, successBlock: onSuccess, failureBlock: onFailure)
         serverManager.makePostRequest(url: url, postDataDic: dict, viewControllerContext: delegate)
     }

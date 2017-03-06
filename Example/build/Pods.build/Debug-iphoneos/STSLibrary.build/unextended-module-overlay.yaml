@@ -3,11 +3,11 @@
   'case-sensitive': 'false',
   'roots': [{
     'type': 'directory',
-    'name': '/Users/chetu/Documents/STSLibrary2/Example/build/Debug-iphoneos/STSLibrary/STSLibrary.framework/Modules'
+    'name': '/Users/chetu/Documents/STSLibrary3/Example/build/Debug-iphoneos/STSLibrary/STSLibrary.framework/Modules'
     'contents': [{
       'type': 'file',
       'name': 'module.modulemap',
-      'external-contents': '/Users/chetu/Documents/STSLibrary2/Example/build/Pods.build/Debug-iphoneos/STSLibrary.build/unextended-module.modulemap',
+      'external-contents': '/Users/chetu/Documents/STSLibrary3/Example/build/Pods.build/Debug-iphoneos/STSLibrary.build/unextended-module.modulemap',
     }]
   }]
 }

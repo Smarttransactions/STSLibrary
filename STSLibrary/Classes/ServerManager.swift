@@ -78,7 +78,7 @@ class ServerManager: NSObject {
      ***********************************************************************************************************/
     func makePostRequestForReport(url:String, postDataDic:NSDictionary, viewControllerContext:UIViewController){
         if(validateDictionary(dict: postDataDic)){
-            var postString = getXMLFromDict(dict: postDataDic) //self.createStringUsingDictionary(dataDic: postDataDic)
+            var postString =  getXMLFromDict(dict: postDataDic) // self.createStringUsingDictionary(dataDic: postDataDic)//
             let msgLength = "\(postString.characters.count)"
             
             let request = NSMutableURLRequest(url: URL(string: url)!)
@@ -258,7 +258,6 @@ extension ServerManager:NSURLConnectionDataDelegate{
         
         receivedData.append(data as Data)
 
-        let recevedString = String(data: data, encoding: String.Encoding.utf8)
     }
     
 }
