@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'STSLibrary'
-  s.version          = '0.1.3'
+  s.version          = '3.0.7'
   s.summary          = 'A short description of STSLibrary.'
 
 # This description is used to generate tags and improve search results.
